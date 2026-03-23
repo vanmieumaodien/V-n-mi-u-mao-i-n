@@ -592,13 +592,17 @@
             
             // Show next question
             const nextNum = currentNum + 1;
-            document.getElementById(`question-${nextNum}`).style.display = 'block';
+            const nextQuestion = document.getElementById(`question-${nextNum}`);
+            nextQuestion.style.display = 'block';
             
-            // Scroll to top
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+            // Scroll to next question so it's fully visible
+            nextQuestion.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
         
         function showResult() {
+            // Scroll to top when game ends
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            
             const modal = document.getElementById('resultModal');
             const resultScore = document.getElementById('resultScore');
             const resultMessage = document.getElementById('resultMessage');
