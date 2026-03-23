@@ -457,24 +457,19 @@
     </footer>
 
     <script>
-        // Lưu vị trí scroll khi người dùng rời trang
+        // Chỉ khôi phục scroll khi bấm nút "back"
         function saveScrollPosition() {
             sessionStorage.setItem('scrollPosition_danh-nhan', window.scrollY);
         }
 
-        // Khôi phục vị trí scroll khi trang load
+        // Khôi phục vị trí scroll nếu từ nút back
         window.addEventListener('load', function() {
             const scrollPos = sessionStorage.getItem('scrollPosition_danh-nhan');
             if (scrollPos !== null) {
                 window.scrollTo(0, parseInt(scrollPos));
-                // Xoá dữ liệu sau khi khôi phục
-                sessionStorage.removeItem('scrollPosition_danh-nhan');
             }
-        });
-
-        // Lưu vị trí scroll mỗi khi người dùng scroll
-        window.addEventListener('beforeunload', function() {
-            sessionStorage.setItem('scrollPosition_danh-nhan', window.scrollY);
+            // Xoá dữ liệu để lần sau bấm link sẽ vào từ đầu
+            sessionStorage.removeItem('scrollPosition_danh-nhan');
         });
     </script>
 </body>
