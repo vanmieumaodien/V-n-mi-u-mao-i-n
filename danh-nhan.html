@@ -444,7 +444,7 @@
         
         <section class="section" style="text-align: center;">
             <div class="button-container">
-                <button onclick="window.history.back()" class="back-btn">← Trở về Trang Giới Thiệu</button>
+                <button onclick="saveScrollPosition(); window.history.back()" class="back-btn">← Trở về Trang Giới Thiệu</button>
                 <a href="tro-choi.html" class="play-btn">🎮 Chơi Trò Chơi</a>
             </div>
         </section>
@@ -455,5 +455,27 @@
         <p>Trung tâm đạo học xứ Đông | Di sản văn hoá lịch sử của Việt Nam</p>
         <p style="margin-top: 15px; font-size: 0.9em;">&copy; 2024 - Tôn vinh truyền thống hiếu học | Học đi đôi với hành</p>
     </footer>
+
+    <script>
+        // Lưu vị trí scroll khi người dùng rời trang
+        function saveScrollPosition() {
+            sessionStorage.setItem('scrollPosition_danh-nhan', window.scrollY);
+        }
+
+        // Khôi phục vị trí scroll khi trang load
+        window.addEventListener('load', function() {
+            const scrollPos = sessionStorage.getItem('scrollPosition_danh-nhan');
+            if (scrollPos !== null) {
+                window.scrollTo(0, parseInt(scrollPos));
+                // Xoá dữ liệu sau khi khôi phục
+                sessionStorage.removeItem('scrollPosition_danh-nhan');
+            }
+        });
+
+        // Lưu vị trí scroll mỗi khi người dùng scroll
+        window.addEventListener('beforeunload', function() {
+            sessionStorage.setItem('scrollPosition_danh-nhan', window.scrollY);
+        });
+    </script>
 </body>
 </html>

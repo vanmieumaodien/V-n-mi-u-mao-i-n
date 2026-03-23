@@ -419,6 +419,15 @@
     </footer>
     
     <script>
+        // Kiểm tra nếu cần scroll lên đầu (khi quay về từ trò chơi)
+        window.addEventListener('load', function() {
+            const scrollToTop = sessionStorage.getItem('scrollToTop');
+            if (scrollToTop === 'true') {
+                window.scrollTo(0, 0);
+                sessionStorage.removeItem('scrollToTop');
+            }
+        });
+
         document.getElementById('quizForm').addEventListener('submit', function(e) {
             e.preventDefault();
             

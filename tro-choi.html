@@ -483,7 +483,7 @@
                 </div>
             </form>
             
-            <a href="index.html" class="back-btn">← Trở về Trang Giới Thiệu</a>
+            <a href="index.html" onclick="sessionStorage.setItem('scrollToTop', 'true')" class="back-btn">← Trở về Trang Giới Thiệu</a>
         </section>
     </div>
     
@@ -627,6 +627,8 @@
         }
         
         function goHome() {
+            // Báo cho index.html rằng cần scroll lên đầu khi quay về từ trò chơi
+            sessionStorage.setItem('scrollToTop', 'true');
             window.location.href = 'index.html';
         }
     </script>
