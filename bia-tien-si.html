@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bia Tiến Sĩ - Văn Miếu Mao Điền</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.3em;
+            font-style: italic;
+        }
+        
+        nav {
+            background-color: #654321;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #8B4513;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #8B4513;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #D2691E;
+            padding-bottom: 15px;
+        }
+        
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .intro-grid img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .intro-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .subsection {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #D2691E;
+        }
+        
+        .subsection h4 {
+            color: #8B4513;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .subsection p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .stat-box {
+            background: linear-gradient(135deg, #f5deb3 0%, #daa520 100%);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .stat-box h3 {
+            font-size: 3em;
+            color: #8B4513;
+            margin-bottom: 10px;
+        }
+        
+        .stat-box p {
+            font-size: 1.3em;
+            color: #654321;
+            font-weight: bold;
+        }
+        
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .back-btn, .play-btn {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+            font-weight: bold;
+        }
+        
+        .back-btn {
+            background: linear-gradient(135deg, #808080 0%, #606060 100%);
+            color: white;
+        }
+        
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .play-btn {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background-color: #654321;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .button-container {
+                flex-direction: column;
+            }
+            
+            .back-btn, .play-btn {
+                width: 100%;
+            }
+            
+            .stat-box h3 {
+                font-size: 2em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏯 Văn Miếu Mao Điền</h1>
+        <p>Trái Tim Đạo Học Xứ Đông</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Giới Thiệu</a></li>
+            <li><a href="tro-choi.html">Trò Chơi</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section class="section">
+            <h2>📜 Hệ Thống Bia Vinh Danh Tiến Sĩ</h2>
+            
+            <div class="intro-grid">
+                <img src="Bia%20tiến%20sĩ%20.jpg" alt="Bia Tiến Sĩ">
+                <div class="intro-text">
+                    <h3>Đặc Điểm Nổi Bật</h3>
+                    <p>Bao gồm 14 tấm bia đá lớn được chế tác tinh xảo, đặt trang trọng trong hai dãy nhà bia đối diện nhau. Các bia này ghi danh 637 vị tiến sĩ đại khoa của trấn Hải Dương xưa (bao gồm cả tỉnh Hải Dương và thành phố Hải Phòng ngày nay).</p>
+                </div>
+            </div>
+            
+            <div class="stat-box">
+                <h3>637</h3>
+                <p>Vị Tiến Sĩ Đại Khoa Được Ghi Danh</p>
+            </div>
+            
+            <div class="subsection">
+                <h4>📖 Lịch Sử Dựng Bia</h4>
+                <p>Dù không phải là những tấm bia cổ từ thời phong kiến như ở kinh thành Thăng Long, nhưng việc dựng bia tại Mao Điền là một nỗ lực lớn của tỉnh Hải Dương nhằm phục dựng và lưu giữ danh thơm của các bậc tiền nhân sau khi di tích bị tàn phá bởi chiến tranh.</p>
+                <p style="margin-top: 15px;">Quá trình dựng bia được thực hiện một cách trang trọng, với mục đích vinh danh những vị tiến sĩ đã đóng góp cho xã hội và nước nhà. Mỗi tấm bia là biểu tượng của sự công nhân và tôn trọng đối với những vị học giả xuất chúng.</p>
+            </div>
+            
+            <div class="subsection">
+                <h4>🏆 Ý Nghĩa Lịch Sử</h4>
+                <p>Đây là "cuốn sử đá" khổng lồ, minh chứng cho vùng đất "địa linh nhân kiệt" và truyền thống hiếu học đứng đầu cả nước của xứ Đông. Nó nhắc nhở hậu thế rằng: Tri thức là tài sản quý giá nhất và sự học là con đường bền vững nhất để phụng sự tổ quốc.</p>
+                <p style="margin-top: 15px;">Những tấm bia này không chỉ ghi lại tên tuổi mà còn ghi lại những câu chuyện về sự kiên trì, tài năng và đóng góp của các vị tiến sĩ. Chúng là nguồn cảm hứng bất tận cho các thế hệ học sinh, sinh viên đến sau.</p>
+            </div>
+            
+            <div class="subsection">
+                <h4>🏛️ Cấu Trúc Và Bố Trí</h4>
+                <p><strong>Số Lượng Bia:</strong> 14 tấm bia đá lớn</p>
+                <p><strong>Bố Trí:</strong> Hai dãy nhà bia đối diện nhau, tạo nên khoảng không gian hài hòa</p>
+                <p><strong>Vật Liệu:</strong> Đá được chế tác tinh xảo, chạm khắc tên tuổi và thông tin tiến sĩ</p>
+                <p><strong>Bảo Quản:</strong> Được bảo vệ cẩn thận, duy trì trong tình trạng tốt nhất</p>
+            </div>
+            
+            <div class="subsection">
+                <h4>📚 Thông Tin Trên Bia</h4>
+                <p>Mỗi tấm bia ghi lại thông tin chi tiết về các vị tiến sĩ, bao gồm:</p>
+                <p>• Tên và quê quán</p>
+                <p>• Thời đại đỗ tiến sĩ</p>
+                <p>• Các vị trí chức vụ quan trọng mà họ từng đảm nhiệm</p>
+                <p>• Đóng góp của họ cho xã hội và nước nhà</p>
+            </div>
+        </section>
+        
+        <section class="section" style="text-align: center;">
+            <div class="button-container">
+                <a href="index.html" class="back-btn">← Trở về Trang Giới Thiệu</a>
+                <a href="tro-choi.html" class="play-btn">🎮 Chơi Trò Chơi</a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <h3>Văn Miếu Mao Điền - Cẩm Giàng, Hải Dương</h3>
+        <p>Trung tâm đạo học xứ Đông | Di sản văn hoá lịch sử của Việt Nam</p>
+        <p style="margin-top: 15px; font-size: 0.9em;">&copy; 2024 - Tôn vinh truyền thống hiếu học | Học đi đôi với hành</p>
+    </footer>
+</body>
+</html>

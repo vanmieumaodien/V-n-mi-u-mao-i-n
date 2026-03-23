@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khu Nội Tự - Văn Miếu Mao Điền</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.3em;
+            font-style: italic;
+        }
+        
+        nav {
+            background-color: #654321;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #8B4513;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #8B4513;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #D2691E;
+            padding-bottom: 15px;
+        }
+        
+        .section h3 {
+            color: #A0522D;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .image-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+        
+        .gallery-item {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+        
+        .gallery-item p {
+            padding: 15px;
+            color: #333;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .subsection {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #D2691E;
+        }
+        
+        .subsection h4 {
+            color: #8B4513;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .subsection p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .back-btn, .play-btn {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+            font-weight: bold;
+        }
+        
+        .back-btn {
+            background: linear-gradient(135deg, #808080 0%, #606060 100%);
+            color: white;
+        }
+        
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .play-btn {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background-color: #654321;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .button-container {
+                flex-direction: column;
+            }
+            
+            .back-btn, .play-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏯 Văn Miếu Mao Điền</h1>
+        <p>Trái Tim Đạo Học Xứ Đông</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Giới Thiệu</a></li>
+            <li><a href="tro-choi.html">Trò Chơi</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section class="section">
+            <h2>🏛️ Khu Nội Tự - Tâm Điểm Tôn Vinh Đạo Học</h2>
+            
+            <div class="subsection">
+                <h4>🌳 Không Gian</h4>
+                <p>Là trung tâm của di tích, khu thờ được thiết kế theo cấu trúc chữ "Công" uy nghiêm, bao quanh bởi những hàng cây cổ thụ, tạo nên không gian tĩnh mịch, thoát tục. Đây là nơi đặt bài vị của Khổng Tử cùng 9 vị danh nhân văn hóa, giáo dục lỗi lạc của dân tộc như Chu Văn An, Mạc Đĩnh Chi, Nguyễn Trãi và nhiều vị khác.</p>
+            </div>
+            
+            <h3>📸 Các Hạng Mục Chính</h3>
+            <div class="image-gallery">
+                <div class="gallery-item">
+                    <img src="Khu%20thờ%20phượng.jpg" alt="Khu Thờ Phượng">
+                    <p><strong>Khu Thờ Phượng</strong><br>Nơi đặt bài vị các danh nhân</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Sân%20chùa.jpg" alt="Sân Chùa">
+                    <p><strong>Sân Chùa</strong><br>Không gian ngoài trời rộng lớn</p>
+                </div>
+                <div class="gallery-item">
+                    <img src="Tòa%20hiệu.jpg" alt="Tòa Hiệu">
+                    <p><strong>Tòa Hiệu</strong><br>Công trình kiến trúc chính</p>
+                </div>
+            </div>
+            
+            <div class="subsection">
+                <h4>⏰ Lịch Sử Trùng Tu</h4>
+                <p>Trải qua nhiều đợt trùng tu (lớn nhất là vào thời Tây Sơn và thời Nguyễn), khu thờ vẫn giữ được nét kiến trúc gỗ truyền thống với hệ thống cột kèo vững chãi và các bức đại tự, câu đối sơn son thếp vàng. Mỗi lần trùng tu đều được thực hiện với sự tôn trọng cao nhất đối với kiến trúc gốc.</p>
+            </div>
+            
+            <div class="subsection">
+                <h4>💎 Ý Nghĩa Văn Hóa</h4>
+                <p>Không chỉ là nơi chiêm bái, khu thờ là biểu tượng sống động của truyền thống "Uống nước nhớ nguồn" và "Tôn sư trọng đạo". Mỗi hiện vật, bài vị tại đây đều là một bài học về nhân cách và ý chí khổ luyện thành tài cho thế hệ mai sau.</p>
+                <p style="margin-top: 15px;">Khu Nội Tự là nơi ghi lại những câu chuyện của những nhân vật lịch sử vĩ đại, những người đã đóng góp không ít cho sự phát triển của đất nước và nhân loại. Tại đây, các thế hệ học sinh, sinh viên đến để lấy cảm hứng và động lực cho con đường học hành của mình.</p>
+            </div>
+            
+            <div class="subsection">
+                <h4>🏗️ Kiến Trúc Đặc Trưng</h4>
+                <p><strong>Cấu Trúc:</strong> Chữ "Công" - biểu tượng của sự uy nghi và cân bằng</p>
+                <p><strong>Vật Liệu:</strong> Gỗ truyền thống, được khắc chạm tinh xảo</p>
+                <p><strong>Trang Trí:</strong> Sơn son thếp vàng, các bức đại tự, câu đối nổi bật</p>
+                <p><strong>Xanh Hóa:</strong> Hàng cây cổ thụ bao quanh tạo nên không gian tâm linh</p>
+            </div>
+        </section>
+        
+        <section class="section" style="text-align: center;">
+            <div class="button-container">
+                <a href="index.html" class="back-btn">← Trở về Trang Giới Thiệu</a>
+                <a href="tro-choi.html" class="play-btn">🎮 Chơi Trò Chơi</a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <h3>Văn Miếu Mao Điền - Cẩm Giàng, Hải Dương</h3>
+        <p>Trung tâm đạo học xứ Đông | Di sản văn hoá lịch sử của Việt Nam</p>
+        <p style="margin-top: 15px; font-size: 0.9em;">&copy; 2024 - Tôn vinh truyền thống hiếu học | Học đi đôi với hành</p>
+    </footer>
+</body>
+</html>

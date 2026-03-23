@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cổng Tam Quan - Văn Miếu Mao Điền</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f5f5f5;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        header h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        header p {
+            font-size: 1.3em;
+            font-style: italic;
+        }
+        
+        nav {
+            background-color: #654321;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            display: block;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: #8B4513;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 30px 20px;
+        }
+        
+        .section {
+            background: white;
+            margin: 30px 0;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #8B4513;
+            font-size: 2.2em;
+            margin-bottom: 20px;
+            border-bottom: 3px solid #D2691E;
+            padding-bottom: 15px;
+        }
+        
+        .section h3 {
+            color: #A0522D;
+            font-size: 1.5em;
+            margin-top: 25px;
+            margin-bottom: 15px;
+        }
+        
+        .intro-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .intro-grid img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .intro-text {
+            font-size: 1.1em;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .subsection {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-left: 5px solid #D2691E;
+        }
+        
+        .subsection h4 {
+            color: #8B4513;
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+        
+        .subsection p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 10px;
+        }
+        
+        .button-container {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .back-btn, .play-btn {
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s;
+            font-weight: bold;
+        }
+        
+        .back-btn {
+            background: linear-gradient(135deg, #808080 0%, #606060 100%);
+            color: white;
+        }
+        
+        .back-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        .play-btn {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+        }
+        
+        .play-btn:hover {
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background-color: #654321;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+        
+        @media (max-width: 768px) {
+            .intro-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            header h1 {
+                font-size: 2em;
+            }
+            
+            nav ul {
+                flex-direction: column;
+            }
+            
+            .section {
+                padding: 20px;
+            }
+            
+            .button-container {
+                flex-direction: column;
+            }
+            
+            .back-btn, .play-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🏯 Văn Miếu Mao Điền</h1>
+        <p>Trái Tim Đạo Học Xứ Đông</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="index.html">Giới Thiệu</a></li>
+            <li><a href="tro-choi.html">Trò Chơi</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <section class="section">
+            <h2>🚪 Cổng Tam Quan - Ranh Giới Linh Thiêng</h2>
+            
+            <div class="intro-grid">
+                <img src="Cổng%20đình.webp" alt="Cổng Tam Quan">
+                <div class="intro-text">
+                    <h3>Kiến Trúc</h3>
+                    <p>Là lối vào trang trọng, được xây dựng theo kiểu chồng diêm hai tầng tám mái với các đầu đao cong vút và hoa văn chạm khắc tinh xảo. Cổng hướng về phía Nam — hướng của thánh nhân và sự sáng suốt.</p>
+                </div>
+            </div>
+            
+            <div class="subsection">
+                <h4>📐 Lịch Sử</h4>
+                <p>Cổng hiện nay mang phong cách kiến trúc thời Nguyễn, là điểm khởi đầu cho trục thần đạo dẫn vào nội tự. Đây là cửa vào trang trọng của di tích, thể hiện sự uy nghi và tôn trọng với lịch sử lâu đời.</p>
+            </div>
+            
+            <div class="subsection">
+                <h4>✨ Ý Nghĩa Tâm Linh</h4>
+                <p>Cửa Tam quan không chỉ là ranh giới giữa không gian đời thường và chốn linh thiêng, mà còn là biểu tượng cho sự rộng mở của con đường học vấn. Việc bước qua cổng nhắc nhở mỗi sĩ tử về sự khiêm cung, lòng tôn kính đối với đạo học và các bậc tiền nhân.</p>
+                <p style="margin-top: 15px;">Theo triết lý kiến trúc phong thủy, cổng được hướng về phía Nam tượng trưng cho sự sáng suốt của trí tuệ và ánh sáng của học vấn. Đây là điểm khởi đầu của hành trình khám phá tri thức và hoàn thiện bản thân.</p>
+            </div>
+            
+            <div class="subsection">
+                <h4>🏛️ Đặc Điểm Kiến Trúc</h4>
+                <p><strong>Kiểu dáng:</strong> Chồng diêm hai tầng tám mái - phong cách kiến trúc truyền thống Việt Nam</p>
+                <p><strong>Trang trí:</strong> Hoa văn chạm khắc tinh xảo, các đầu đao cong vút tạo nên vẻ uy nghi</p>
+                <p><strong>Hướng:</strong> Phía Nam, hướng của thánh nhân theo triết lý Đông phương</p>
+                <p><strong>Vai trò:</strong> Là điểm khởi đầu cho trục thần đạo dẫn vào nội tự</p>
+            </div>
+        </section>
+        
+        <section class="section" style="text-align: center;">
+            <div class="button-container">
+                <a href="index.html" class="back-btn">← Trở về Trang Giới Thiệu</a>
+                <a href="tro-choi.html" class="play-btn">🎮 Chơi Trò Chơi</a>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <h3>Văn Miếu Mao Điền - Cẩm Giàng, Hải Dương</h3>
+        <p>Trung tâm đạo học xứ Đông | Di sản văn hoá lịch sử của Việt Nam</p>
+        <p style="margin-top: 15px; font-size: 0.9em;">&copy; 2024 - Tôn vinh truyền thống hiếu học | Học đi đôi với hành</p>
+    </footer>
+</body>
+</html>
