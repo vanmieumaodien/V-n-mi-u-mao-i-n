@@ -152,36 +152,106 @@
             transform: scale(1.05);
         }
         
-        .result {
-            margin-top: 30px;
-            padding: 20px;
+        .feedback {
+            margin-top: 20px;
+            padding: 15px;
             border-radius: 8px;
             text-align: center;
-            font-size: 1.2em;
+            font-size: 1.1em;
             font-weight: bold;
             display: none;
         }
         
-        .result.show {
+        .feedback.show {
             display: block;
         }
         
-        .result.success {
+        .feedback.correct {
             background-color: #d4edda;
             color: #155724;
             border: 2px solid #c3e6cb;
         }
         
-        .result.partial {
-            background-color: #fff3cd;
-            color: #856404;
-            border: 2px solid #ffeaa7;
-        }
-        
-        .result.failed {
+        .feedback.incorrect {
             background-color: #f8d7da;
             color: #721c24;
             border: 2px solid #f5c6cb;
+        }
+        
+        .result-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.5);
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .result-modal.show {
+            display: flex;
+        }
+        
+        .result-content {
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            text-align: center;
+            max-width: 500px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+        }
+        
+        .result-content h2 {
+            color: #8B4513;
+            margin-bottom: 20px;
+            font-size: 2em;
+        }
+        
+        .result-content p {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        
+        .result-content .score {
+            font-size: 2.5em;
+            color: #D2691E;
+            font-weight: bold;
+            margin: 20px 0;
+        }
+        
+        .result-content button {
+            background: linear-gradient(135deg, #8B4513 0%, #D2691E 100%);
+            color: white;
+            padding: 12px 30px;
+            font-size: 1em;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+            font-weight: bold;
+        }
+        
+        .result-content button:hover {
+            transform: scale(1.05);
+        }
+        
+        .answer-option.disabled {
+            pointer-events: none;
+            opacity: 0.7;
+        }
+        
+        .answer-option.correct-answer {
+            background-color: #d4edda !important;
+            border-color: #28a745 !important;
+        }
+        
+        .answer-option.wrong-answer {
+            background-color: #f8d7da !important;
+            border-color: #dc3545 !important;
         }
         
         .back-btn {
@@ -258,7 +328,7 @@
             
             <form id="quizForm">
                 <!-- Câu 1 -->
-                <div class="question-container">
+                <div class="question-container" id="question-1">
                     <div class="question-header">❓ Câu 1: Chu Văn An được biết đến với danh hiệu nào?</div>
                     <div class="answer-option">
                         <label>
@@ -284,10 +354,12 @@
                             Danh nhân văn hóa thế giới
                         </label>
                     </div>
+                    <div class="feedback" id="feedback-1"></div>
+                    <button type="button" class="submit-btn" id="btn-q1">🎯 Trả Lời</button>
                 </div>
                 
                 <!-- Câu 2 -->
-                <div class="question-container">
+                <div class="question-container" id="question-2" style="display: none;">
                     <div class="question-header">❓ Câu 2: Mạc Đĩnh Chi được coi là đặc biệt vì lý do nào?</div>
                     <div class="answer-option">
                         <label>
@@ -313,10 +385,12 @@
                             Là người đầu tiên đi sứ nhà Nguyên
                         </label>
                     </div>
+                    <div class="feedback" id="feedback-2"></div>
+                    <button type="button" class="submit-btn" id="btn-q2">🎯 Trả Lời</button>
                 </div>
                 
                 <!-- Câu 3 -->
-                <div class="question-container">
+                <div class="question-container" id="question-3" style="display: none;">
                     <div class="question-header">❓ Câu 3: Hệ thống bia tại Văn Miếu Mao Điền ghi danh bao nhiêu vị tiến sĩ đại khoa?</div>
                     <div class="answer-option">
                         <label>
@@ -342,10 +416,12 @@
                             Hơn 1000 vị
                         </label>
                     </div>
+                    <div class="feedback" id="feedback-3"></div>
+                    <button type="button" class="submit-btn" id="btn-q3">🎯 Trả Lời</button>
                 </div>
                 
                 <!-- Câu 4 -->
-                <div class="question-container">
+                <div class="question-container" id="question-4" style="display: none;">
                     <div class="question-header">❓ Câu 4: Nguyễn Trãi nổi tiếng với tác phẩm nào?</div>
                     <div class="answer-option">
                         <label>
@@ -371,10 +447,12 @@
                             Sấm Trạng Trình
                         </label>
                     </div>
+                    <div class="feedback" id="feedback-4"></div>
+                    <button type="button" class="submit-btn" id="btn-q4">🎯 Trả Lời</button>
                 </div>
                 
                 <!-- Câu 5 -->
-                <div class="question-container">
+                <div class="question-container" id="question-5" style="display: none;">
                     <div class="question-header">❓ Câu 5: Cổng Tam quan hướng về phía nào?</div>
                     <div class="answer-option">
                         <label>
@@ -400,89 +478,157 @@
                             Phía Tây
                         </label>
                     </div>
+                    <div class="feedback" id="feedback-5"></div>
+                    <button type="button" class="submit-btn" id="btn-q5">🎯 Trả Lời</button>
                 </div>
-                
-                <button type="submit" class="submit-btn">🎯 Nộp Bài Thi</button>
             </form>
-            
-            <div id="result" class="result"></div>
             
             <a href="index.html" class="back-btn">← Trở về Trang Giới Thiệu</a>
         </section>
     </div>
     
-    <footer>
-        <h3>Văn Miếu Mao Điền - Cẩm Giàng, Hải Dương</h3>
-        <p>Trung tâm đạo học xứ Đông | Di sản văn hoá lịch sử của Việt Nam</p>
-        <p style="margin-top: 15px; font-size: 0.9em;">&copy; 2024 - Tôn vinh truyền thống hiếu học | Học đi đôi với hành</p>
-    </footer>
+    <!-- Modal Kết Quả -->
+    <div id="resultModal" class="result-modal">
+        <div class="result-content">
+            <h2>🎉 Kết Quả Của Bạn</h2>
+            <p id="resultMessage"></p>
+            <div class="score" id="resultScore"></div>
+            <p id="resultDescription"></p>
+            <button onclick="goHome()">OK</button>
+        </div>
+    </div>
     
     <script>
-        document.getElementById('quizForm').addEventListener('submit', function(e) {
-            e.preventDefault();
+        let currentQuestion = 1;
+        let score = 0;
+        const totalQuestions = 5;
+        
+        const answers = {
+            q1: 'correct',
+            q2: 'correct',
+            q3: 'correct',
+            q4: 'correct',
+            q5: 'correct'
+        };
+        
+        const answerTexts = {
+            q1: 'Chu Văn An được biết đến với danh hiệu "Người thầy của muôn đời"',
+            q2: 'Đúng! Mạc Đĩnh Chi là vị Lưỡng quốc Trạng nguyên duy nhất trong lịch sử',
+            q3: 'Chính xác! Hệ thống bia ghi danh 637 vị tiến sĩ đại khoa',
+            q4: 'Nguyễn Trãi nổi tiếng với tác phẩm "Bình Ngô Đại Cáo"',
+            q5: 'Cổng Tam quan hướng về phía Nam - hướng của thánh nhân'
+        };
+        
+        const wrongAnswerTexts = {
+            q1: '❌ Sai! Chu Văn An được biết đến với danh hiệu "Người thầy của muôn đời"',
+            q2: '❌ Sai! Mạc Đĩnh Chi là vị Lưỡng quốc Trạng nguyên duy nhất trong lịch sử',
+            q3: '❌ Sai! Hệ thống bia ghi danh 637 vị tiến sĩ đại khoa',
+            q4: '❌ Sai! Nguyễn Trãi nổi tiếng với tác phẩm "Bình Ngô Đại Cáo"',
+            q5: '❌ Sai! Cổng Tam quan hướng về phía Nam'
+        };
+        
+        // Setup button listeners
+        for (let i = 1; i <= totalQuestions; i++) {
+            const btn = document.getElementById(`btn-q${i}`);
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                checkAnswer(i);
+            });
+        }
+        
+        function checkAnswer(questionNum) {
+            const selectedAnswer = document.querySelector(`input[name="q${questionNum}"]:checked`);
+            const feedback = document.getElementById(`feedback-${questionNum}`);
+            const btn = document.getElementById(`btn-q${questionNum}`);
             
-            const answers = {
-                q1: document.querySelector('input[name="q1"]:checked')?.value,
-                q2: document.querySelector('input[name="q2"]:checked')?.value,
-                q3: document.querySelector('input[name="q3"]:checked')?.value,
-                q4: document.querySelector('input[name="q4"]:checked')?.value,
-                q5: document.querySelector('input[name="q5"]:checked')?.value
-            };
-            
-            // Kiểm tra xem tất cả câu hỏi đã được trả lời
-            if (Object.values(answers).includes(undefined)) {
-                alert('⚠️ Vui lòng trả lời tất cả 5 câu hỏi!');
+            if (!selectedAnswer) {
+                alert('⚠️ Vui lòng chọn một đáp án!');
                 return;
             }
             
-            // Đáp án đúng
-            const correctAnswers = {
-                q1: 'correct',
-                q2: 'correct',
-                q3: 'correct',
-                q4: 'correct',
-                q5: 'correct'
-            };
+            const isCorrect = selectedAnswer.value === answers[`q${questionNum}`];
             
-            // Tính điểm
-            let score = 0;
-            for (let i = 1; i <= 5; i++) {
-                const questionName = 'q' + i;
-                if (answers[questionName] === correctAnswers[questionName]) {
-                    score++;
+            // Highlight correct and wrong answers
+            const answerOptions = document.querySelectorAll(`#question-${questionNum} .answer-option`);
+            answerOptions.forEach(option => {
+                const input = option.querySelector('input');
+                if (input.value === answers[`q${questionNum}`]) {
+                    option.classList.add('correct-answer');
+                } else if (input.checked && !isCorrect) {
+                    option.classList.add('wrong-answer');
                 }
-            }
+                option.classList.add('disabled');
+            });
             
-            // Hiển thị kết quả
-            const resultDiv = document.getElementById('result');
-            resultDiv.classList.add('show');
-            
-            let message = '';
-            let className = '';
-            
-            if (score === 5) {
-                message = `🏆 TUYỆT VỜI! Bạn trả lời đúng cả 5 câu hỏi! Bạn là chuyên gia về Văn Miếu Mao Điền! (${score}/5)`;
-                className = 'success';
-            } else if (score === 4) {
-                message = `👏 RẤT TỐT! Bạn trả lời đúng 4/5 câu. Bạn có hiểu biết sâu sắc! (${score}/5)`;
-                className = 'success';
-            } else if (score === 3) {
-                message = `😊 KHÁ TỐT! Bạn trả lời đúng 3/5 câu. Hãy tìm hiểu thêm! (${score}/5)`;
-                className = 'partial';
-            } else if (score === 2) {
-                message = `📚 CẦN CỐ GẮNG HƠN! Bạn trả lời đúng 2/5 câu. Hãy đọc lại nội dung! (${score}/5)`;
-                className = 'partial';
+            // Update score
+            if (isCorrect) {
+                score++;
+                feedback.textContent = '✅ ' + answerTexts[`q${questionNum}`];
+                feedback.classList.add('correct');
             } else {
-                message = `❌ HÃY CỐ GẮNG LẠI! Bạn trả lời đúng ${score}/5 câu. Bạn cần tìm hiểu thêm về Văn Miếu Mao Điền!`;
-                className = 'failed';
+                feedback.textContent = wrongAnswerTexts[`q${questionNum}`];
+                feedback.classList.add('incorrect');
             }
             
-            resultDiv.textContent = message;
-            resultDiv.className = 'result show ' + className;
+            feedback.classList.add('show');
             
-            // Scroll đến kết quả
-            resultDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
-        });
+            // Change button to next
+            if (questionNum < totalQuestions) {
+                btn.textContent = '➡️ Tiếp Theo';
+                btn.onclick = function() {
+                    showNextQuestion(questionNum);
+                };
+            } else {
+                btn.textContent = '✅ Xem Kết Quả';
+                btn.onclick = function() {
+                    showResult();
+                };
+            }
+        }
+        
+        function showNextQuestion(currentNum) {
+            // Hide current question
+            document.getElementById(`question-${currentNum}`).style.display = 'none';
+            
+            // Show next question
+            const nextNum = currentNum + 1;
+            document.getElementById(`question-${nextNum}`).style.display = 'block';
+            
+            // Scroll to top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function showResult() {
+            const modal = document.getElementById('resultModal');
+            const resultScore = document.getElementById('resultScore');
+            const resultMessage = document.getElementById('resultMessage');
+            const resultDescription = document.getElementById('resultDescription');
+            
+            resultScore.textContent = `${score}/${totalQuestions}`;
+            
+            if (score === totalQuestions) {
+                resultMessage.textContent = '🏆 TUYỆT VỜI!';
+                resultDescription.textContent = 'Bạn trả lời đúng tất cả 5 câu hỏi! Bạn là chuyên gia về Văn Miếu Mao Điền!';
+            } else if (score === 4) {
+                resultMessage.textContent = '👏 RẤT TỐT!';
+                resultDescription.textContent = 'Bạn trả lời đúng 4 câu. Bạn có hiểu biết sâu sắc!';
+            } else if (score === 3) {
+                resultMessage.textContent = '😊 KHÁ TỐT!';
+                resultDescription.textContent = 'Bạn trả lời đúng 3 câu. Hãy tìm hiểu thêm về Văn Miếu!';
+            } else if (score === 2) {
+                resultMessage.textContent = '📚 CẦN CỐ GẮNG HƠN!';
+                resultDescription.textContent = 'Bạn trả lời đúng 2 câu. Hãy đọc lại nội dung!';
+            } else {
+                resultMessage.textContent = '❌ HÃY CỐ GẮNG LẠI!';
+                resultDescription.textContent = 'Bạn trả lời đúng ' + score + ' câu. Tìm hiểu thêm về Văn Miếu Mao Điền!';
+            }
+            
+            modal.classList.add('show');
+        }
+        
+        function goHome() {
+            window.location.href = 'index.html';
+        }
     </script>
 </body>
 </html>
