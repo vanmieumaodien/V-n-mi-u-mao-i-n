@@ -499,9 +499,16 @@
     </div>
     
     <script>
+        // Reset score khi trang load
         let currentQuestion = 1;
         let score = 0;
         const totalQuestions = 5;
+        
+        // Đảm bảo score được reset khi người dùng quay lại
+        window.addEventListener('load', function() {
+            score = 0;
+            currentQuestion = 1;
+        });
         
         const answers = {
             q1: 'correct',
@@ -631,6 +638,9 @@
         }
         
         function goHome() {
+            // Reset score khi quay về trang chủ
+            score = 0;
+            currentQuestion = 1;
             // Báo cho index.html rằng cần scroll lên đầu khi quay về từ trò chơi
             sessionStorage.setItem('scrollToTop', 'true');
             window.location.href = 'index.html';
